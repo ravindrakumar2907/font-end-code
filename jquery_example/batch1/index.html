@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+        <script>
+            $(document).ready(function(){
+            $("p").click(function(){
+                $("#p2").html("khgsdkj");
+            });
+            });
+            $("p").click(function(){
+                $("#p1").show();
+            });
+
+            let username = $("#username").val();
+            let username1 = document.getElementById("username").value;
+        </script>
+    </head>
+
+    <body>
+
+        <p onclick="show();">If you click on me, I will disappear.</p>
+        <p id="p1" onclick="hide();">Click me away!</p>
+        <p id="p2"  style="display1:none;">Click me too!</p>
+        <input type="text" id="username" name="username" />
+        
+        </body>
+
+</html>
