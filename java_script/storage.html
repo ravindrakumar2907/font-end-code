@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<h2>Sum Example</h2>
+<p id="demo"></p>
+
+Name: <input type="text" name="name" /> <br>
+<input type="submit" value="store" /> <br><br>
+
+<script>
+	let name = "";
+	localStorage.setItem("name", "John Doe");
+
+	if(localStorage.getItem("name")){
+		name = localStorage.getItem("name");
+	}else{
+		name = "name not found";
+	}
+	document.write( "Name: " + name);
+	//var demo = document.getElementById("demo");
+	//document.write(demo);
+	//demo.innerHTML = name;
+
+	sessionStorage.setItem("age", "30");
+	sessionStorage.getItem("age");
+
+	localStorage.setItem("age", "30");
+	localStorage.getItem("age");
+
+
+
+</script>
+</body>
+</html>
+
+
+
+

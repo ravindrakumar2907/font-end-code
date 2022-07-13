@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Error Handling</h2>
+
+<p>How to use <b>catch</b> to display an error.</p>
+
+<p id="demo"></p>
+
+<script>
+try{
+adddlert("Welcome guest!");
+}catch(error){
+ document.getElementById("demo").innerHTML= error.message;
+}
+
+const message = () => {
+	const name = "Jesse";
+	const age = 40;
+	return name + ' is ' + age + 'years old.';
+};
+
+function message(){
+	const name = "Jesse";
+	const age = 40;
+	return name + ' is ' + age + 'years old.';
+}
+
+
+</script>
+
+</body>
+</html>
+
+
+
+

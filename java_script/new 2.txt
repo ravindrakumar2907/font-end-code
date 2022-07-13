@@ -1,0 +1,52 @@
+
+
+http://localhost:8080/springdemo/api/
+
+http: https:
+
+resp:{
+
+}
+
+Rest API:
+
+http
+
+GET
+POST
+PUT
+DELETE
+
+
+OPTION
+
+
+https:  == > http
+
+
+getData/userid/
+getData/1001/ ?name=""
+
+headers: 
+
+<example>
+	<age>
+		24
+	<age>
+<example>
+
+{
+ 'example':{
+	'age':'24'
+  }
+}
+
+HTML - Structre 
+CSS - style  == Bootstrap
+javaScript 
+Jquery 
+Ajax-
+<Style>
+
+<script>
+javaScript 

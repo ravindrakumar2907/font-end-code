@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <style>
+        #errorInfo{
+            display: inline;
+        }
+    </style>
+    <script>
+        function checkStrongPassword(){
+            console.log("checkStrongPassword");
+            let pass = document.getElementById("password").value;
+            pass = pass.trim();
+            let len = pass.length;
+            console.log(len);
+
+            if(len >= 10){
+                document.getElementById("errorInfo").innerHTML="Password is Strong";
+                document.getElementById("errorInfo").style.color="white";
+                document.getElementById("errorInfo").style.backgroundColor="green";
+                return;
+            }
+            document.getElementById("errorInfo").innerHTML="The password should be 10 character long.";
+            document.getElementById("errorInfo").style.color="white";
+            document.getElementById("errorInfo").style.backgroundColor="red";
+            return;
+        }
+
+        function clear1(){
+            console.log("clear");
+            document.getElementById("password").value="";
+        }
+    </script>
+</head>
+<body>
+    <h1>This is <strong> password demo</strong></h1>
+    <p>The password should be 10 character long</p><br>
+
+   <p id="errorInfo"></p><br><br>
+  <label>Password</label>  <input type="text" name="password" id="password" onkeyup="checkStrongPassword();" />
+
+  <button onclick="clear1();">Reset</button>
+</body>
+</html>
