@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            margin-left: 10px;
+        }
+        .lableStyel{
+            font-size: 20px;
+            color: darkblue;
+        }
+        .valueStyel{
+            font-size: 20px;
+            color: maroon;
+        }
+        #ip{
+            font-size: 20px;
+            border: 1px solid black;
+        }
+        #error{
+            display: none;
+            /*visibility: hidden;*/
+        }
+        button{
+            width: 200px;
+            height: 40px;
+        }
+    </style>
+    <script>
+        function locationInfo(){
+            let ip_data = document.getElementById("ip").value;
+            if(ip_data == "" || ip_data == " " || ip_data ===undefined){
+                document.getElementById("error").innerHTML="Please enter the IP.";
+                document.getElementById("error").style.color="red";
+                document.getElementById("error").style.display="block";
+                return false;
+            }
+            // ajax call
+            
+            var endpoint = 'http://ip-api.com/json/'+ ip_data;
+            //var endpoint = 'http://ip-api.com/json/?fields=status,message,countryCode';
+
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var response = JSON.parse(this.responseText);
+                    if(response.status !== 'success') {
+                        console.log('query failed: ' + response.message);
+                        document.getElementById("error").innerHTML="Ip is not valid";
+                        document.getElementById("error").style.color="red";
+                        document.getElementById("error").style.display="block";
+                        return false;
+                    }
+                    document.getElementById("error").style.display="none";
+                    console.log('success: ' + response.status);
+                    document.getElementById("status").innerHTML=response.status;
+                    document.getElementById("country").innerHTML=response.country;
+                    document.getElementById("countryCode").innerHTML=response.countryCode;
+                    document.getElementById("regionName").innerHTML=response.regionName;
+                    document.getElementById("city").innerHTML=response.city;
+                    document.getElementById("zip").innerHTML=response.zip;
+                    document.getElementById("lat").innerHTML=response.lat;
+                    document.getElementById("lon").innerHTML=response.lon;
+                    document.getElementById("timezone").innerHTML=response.timezone;
+                    document.getElementById("isp").innerHTML=response.isp;
+                    document.getElementById("org").innerHTML=response.org;
+                    document.getElementById("query").innerHTML=response.query;
+                    
+                }
+            };
+            xhr.open('GET', endpoint, true);
+            xhr.send();
+        }
+    </script>
+</head>
+<body>
+    <label class="lableStyel"><h1> Check loctaion for an IP</h1></label><br>
+    <span id="error"></span><br>
+    <lable class="lableStyel">IP or Domain Name : </lable>
+    <input type="text" id="ip" name="ip" /><br><br>
+    <button id="submit" onclick="locationInfo();">Get loctaion Info</button><br><br>
+    <label  class="lableStyel">status: </label><span id="status" class="valueStyel"></span><br>
+    <label class="lableStyel">country: </label><span id="country" class="valueStyel"></span><br>
+    <label class="lableStyel">countryCode: </label><span id="countryCode" class="valueStyel"></span><br>
+    <label class="lableStyel">regionName: </label><span id="regionName" class="valueStyel"></span><br>
+    <label class="lableStyel">city: </label><span id="city" class="valueStyel"></span><br>
+    <label class="lableStyel">zip: </label><span id="zip" class="valueStyel"></span><br>
+    <label class="lableStyel">lat: </label><span id="lat" class="valueStyel"></span><br>
+    <label class="lableStyel">lon: </label> <span id="lon" class="valueStyel"></span><br>
+    <label class="lableStyel">timezone: </label> <span id="timezone" class="valueStyel"></span><br>
+    <label class="lableStyel">isp: </label> <span id="isp" class="valueStyel"></span><br>
+    <label class="lableStyel">org: </label><span id="org" class="valueStyel"></span><br>
+    <label class="lableStyel">query: </label><span id="query" class="valueStyel"></span><br>
+</body>
+</html>
